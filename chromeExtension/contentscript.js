@@ -12,3 +12,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   }
   sendResponse({ result: "success" });
 });
+
+chrome.webRequest.onCompleted.addListener((details) => {
+  console.log("crazy")
+  console.log(details)
+}, 
+{
+  urls: ['*://www.adidas.com/api/products/*']
+})

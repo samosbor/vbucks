@@ -13,3 +13,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     }
   }
 })
+
+chrome.webRequest.onCompleted.addListener((details) => {
+  console.log("crazy")
+  console.log(details)
+}, 
+{
+  urls: ['*://www.adidas.com/api/products/*']
+})
